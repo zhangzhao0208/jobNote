@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+ 
     
     label = [ZZLabel manager];
     label.ZZframe = CGRectMake(100, 100, 200, 50);
