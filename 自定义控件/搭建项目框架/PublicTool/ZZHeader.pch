@@ -1,0 +1,56 @@
+//
+//  ZZHeader.pch
+//  PCH
+//
+//  Created by suorui on 17/3/14.
+//  Copyright © 2017年 suorui. All rights reserved.
+//
+
+#ifndef ZZHeader_pch
+#define ZZHeader_pch
+
+//开发的时候打印，但是发布的时候不打印的NSLog
+#ifdef DEBUG
+#define NSLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define NSLog(...)
+#endif
+
+//IP地址
+#define SERVER_IP @"https://www.12366ca.com/"
+//判断字符串是否为空
+#define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO )
+//判断数组是否为空
+#define kArrayIsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+//判断字典是否为空
+#define kDictIsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+//判断是否为空对象
+#define kObjectIsEmpty(_object) (_object == nil \
+|| [_object isKindOfClass:[NSNull class]] \
+|| ([_object respondsToSelector:@selector(length)] && [(NSData *)_object length] == 0) \
+|| ([_object respondsToSelector:@selector(count)] && [(NSArray *)_object count] == 0))
+//屏幕宽度
+#define WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define RGB(r,g,b) [UIColor colorWithRed:(r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+//归档 存储路径
+#define SAVE_PATH(string) ([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:string])
+//NSUserDefaults
+#define USERD_VK(value,key) [[NSUserDefaults standardUserDefaults] setObject:value forKey:key]
+#define USERD_K(key)  [[NSUserDefaults standardUserDefaults]objectForKey:key]
+//屏幕比例
+#define W_PI WIDTH/750.0f
+#define H_PI HEIGHT/1334.0f
+//APP版本号
+#define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+//#import "Masonry.h"
+//#import "AFNetworking.h"
+//#import "YYModel.h"
+//#import "YYWebImage.h"
+//#import "MBProgressHUD.h"
+//#import "MJRefresh.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* ZZHeader_pch */
