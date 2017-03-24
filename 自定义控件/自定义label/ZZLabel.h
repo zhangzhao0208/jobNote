@@ -25,7 +25,7 @@
 //切圆角
 @property(nonatomic,assign)CGFloat corner;
 
-+ (instancetype)manager;
+
 //label文字、颜色、字体大小
 - (void)ZZlabelTitle:(NSString*)ZZtitle ZZcolor:(UIColor*)ZZcolor ZZfont:(CGFloat)ZZfont;
 

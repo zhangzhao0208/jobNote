@@ -8,50 +8,54 @@
 
 #import "ZZButton.h"
 
-static ZZButton*manager=nil;
 @implementation ZZButton
 
-+ (instancetype)manager{
-    manager= [ZZButton buttonWithType:UIButtonTypeCustom];
-    return manager;
+- (instancetype)init{
+    
+    self = [super init];
+    if (self) {
+       self= [ZZButton buttonWithType:UIButtonTypeCustom];
+    }
+    
+    return self;
 }
 
 - (void)setZZframe:(CGRect)ZZframe{
-    manager.frame = ZZframe;
+    self.frame = ZZframe;
 }
 
 - (void)setZZbgColor:(UIColor*)ZZbgColor{
      _ZZbgColor = ZZbgColor;
-    manager.backgroundColor =ZZbgColor;
+    self.backgroundColor =ZZbgColor;
 }
 - (void)setZZlineColor:(UIColor *)ZZlineColor{
-    manager.layer.borderWidth = 1;
-    manager.layer.borderColor =ZZlineColor.CGColor;
+    self.layer.borderWidth = 1;
+    self.layer.borderColor =ZZlineColor.CGColor;
     
 }
 - (void)ZZbuttonTitle:(NSString*)ZZtitle ZZcolor:(UIColor*)ZZcolor{
-    [manager setTitle:ZZtitle forState:UIControlStateNormal];
-    [manager setTitleColor:ZZcolor forState:UIControlStateNormal];
+    [self setTitle:ZZtitle forState:UIControlStateNormal];
+    [self setTitleColor:ZZcolor forState:UIControlStateNormal];
     _ZZtitle = ZZtitle;
     _ZZtitleColor = ZZcolor;
 }
 - (void)setZZfont:(CGFloat)ZZfont{
     
     ZZfont = [UIScreen mainScreen].bounds.size.width==320? ZZfont-2:ZZfont;
-    NSLog(@"+++%f",ZZfont);
-    manager.titleLabel.font = [UIFont systemFontOfSize:ZZfont];
+    
+    self.titleLabel.font = [UIFont systemFontOfSize:ZZfont];
     
 }
 
 - (void)setZZimage:(NSString *)ZZimage{
-    [manager setBackgroundImage:[UIImage imageNamed:ZZimage] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageNamed:ZZimage] forState:UIControlStateNormal];
 }
 - (void)addTarget{
-    [manager addTarget:self action:@selector(clickZZButton) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(clickZZButton) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)setCorner:(CGFloat)corner{
-     manager.clipsToBounds=YES;
-    manager.layer.cornerRadius=corner;
+     self.clipsToBounds=YES;
+    self.layer.cornerRadius=corner;
 }
 
 - (void)clickZZButton{
@@ -69,11 +73,11 @@ static ZZButton*manager=nil;
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
-                [manager setTitle:_ZZtitle forState:UIControlStateNormal];
-                manager.backgroundColor =_ZZbgColor ;
+                [self setTitle:_ZZtitle forState:UIControlStateNormal];
+                self.backgroundColor =_ZZbgColor ;
                 
-                [manager setTitleColor:_ZZtitleColor forState:UIControlStateNormal];
-                manager.userInteractionEnabled = YES;
+                [self setTitleColor:_ZZtitleColor forState:UIControlStateNormal];
+                self.userInteractionEnabled = YES;
             });
         }else{
             int seconds = timeout % 60;
@@ -81,13 +85,13 @@ static ZZButton*manager=nil;
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
                 //NSLog(@"____%@",strTime);
-                manager.backgroundColor =bgCorlor;
+                self.backgroundColor =bgCorlor;
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:1];
-                [manager setTitle:[NSString stringWithFormat:@"%@s后重试",strTime] forState:UIControlStateNormal];
-                [manager setTitleColor:titleColor forState:UIControlStateNormal];
+                [self setTitle:[NSString stringWithFormat:@"%@s后重试",strTime] forState:UIControlStateNormal];
+                [self setTitleColor:titleColor forState:UIControlStateNormal];
                 [UIView commitAnimations];
-                manager.userInteractionEnabled = NO;
+                self.userInteractionEnabled = NO;
             });
             timeout--;
         }

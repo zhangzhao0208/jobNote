@@ -32,7 +32,7 @@
 
 //点击按钮
 @property(nonatomic,copy)void (^ZZBlock)();
-+ (instancetype)manager;
+- (instancetype)init;
 //按钮文字和颜色
 - (void)ZZbuttonTitle:(NSString*)ZZtitle ZZcolor:(UIColor*)ZZcolor;
 //按钮点击事件

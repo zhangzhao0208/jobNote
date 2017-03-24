@@ -8,43 +8,48 @@
 
 #import "ZZLabel.h"
 
-static ZZLabel * label =nil;
+
 @implementation ZZLabel
 
-+ (instancetype)manager{
-    
-    label = [[ZZLabel alloc]init];
-    
-    return label;
-}
+//- (instancetype)init{
+//    
+//    self = [super init];
+//    
+//    if (self) {
+//       self = [[ZZLabel alloc] init];
+//    }
+//   
+//    
+//    return self;
+//}
 - (void)setZZframe:(CGRect)ZZframe{
-    label.frame = ZZframe;
+    self.frame = ZZframe;
 }
 - (void)setZZbgColor:(UIColor*)ZZbgColor{
    
-    label.backgroundColor =ZZbgColor;
+    self.backgroundColor =ZZbgColor;
 }
 - (void)setZZlineColor:(UIColor *)ZZlineColor{
-    label.layer.borderWidth = 1;
-    label.layer.borderColor =ZZlineColor.CGColor;
+    self.layer.borderWidth = 1;
+    self.layer.borderColor =ZZlineColor.CGColor;
 }
 - (void)setZZtitle:(NSString *)ZZtitle{
-     label.text = ZZtitle;
+     self.text = ZZtitle;
 }
 - (void)setZZfont:(CGFloat)ZZfont{
     ZZfont = [UIScreen mainScreen].bounds.size.width==320? ZZfont-2:ZZfont;
-    label.font =[UIFont systemFontOfSize:ZZfont];
+    self.font =[UIFont systemFontOfSize:ZZfont];
 }
 
 - (void)setCorner:(CGFloat)corner{
-    label.clipsToBounds=YES;
-    label.layer.cornerRadius = corner;
+    self.clipsToBounds=YES;
+    self.layer.cornerRadius = corner;
 }
 - (void)ZZlabelTitle:(NSString*)ZZtitle ZZcolor:(UIColor*)ZZcolor ZZfont:(CGFloat)ZZfont{
-    label.text = ZZtitle;
-    label.textColor = ZZcolor;
+    self.text = ZZtitle;
+    self.textColor = ZZcolor;
     ZZfont = [UIScreen mainScreen].bounds.size.width==320? ZZfont-2:ZZfont;
-    label.font =[UIFont systemFontOfSize:ZZfont];
+    self.font =[UIFont systemFontOfSize:ZZfont];
     
 }
 
