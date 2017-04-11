@@ -1,11 +1,8 @@
 //
 //  AppDelegate.h
-//  JGPush
-//clang: error: linker command failed with exit code 1 (use -v to see invocation)
-
-
-
-//  Created by suorui on 17/3/29.
+//  ZZJGMessage
+//
+//  Created by suorui on 2017/4/11.
 //  Copyright © 2017年 suorui. All rights reserved.
 //
 

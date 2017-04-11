@@ -31,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50CA10ABE33BB5A118CE6627 /* Pods-JGPush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGPush.release.xcconfig"; path = "Pods/Target Support Files/Pods-JGPush/Pods-JGPush.release.xcconfig"; sourceTree = "<group>"; };
 		712609711E8B8603008CBF34 /* JGPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712609751E8B8603008CBF34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		712609771E8B8604008CBF34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		712609A91E8B8BCE008CBF34 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		712609AB1E8B8BD5008CBF34 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		712609AD1E8B8C5B008CBF34 /* JGPush.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JGPush.entitlements; sourceTree = "<group>"; };
+		82ADA78813EFD8F6322E0E75 /* Pods-JGPush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGPush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JGPush/Pods-JGPush.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				712609731E8B8603008CBF34 /* JGPush */,
 				712609721E8B8603008CBF34 /* Products */,
 				712609941E8B8B76008CBF34 /* Frameworks */,
+				7A073CF523BA1FE9B7063E35 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +159,15 @@
 				712609951E8B8B77008CBF34 /* CFNetwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A073CF523BA1FE9B7063E35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82ADA78813EFD8F6322E0E75 /* Pods-JGPush.debug.xcconfig */,
+				50CA10ABE33BB5A118CE6627 /* Pods-JGPush.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,10 +319,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Lib";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Lib";
 			};
@@ -350,9 +363,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Lib";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Lib";
 				VALIDATE_PRODUCT = YES;
@@ -361,6 +375,7 @@
 		};
 		7126098C1E8B8604008CBF34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82ADA78813EFD8F6322E0E75 /* Pods-JGPush.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JGPush/JGPush.entitlements;
@@ -372,6 +387,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JGPush/Lib",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.searchingsoft.JGPush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "00853751-0a50-4478-a9bf-dccfada12bdf";
@@ -381,6 +397,7 @@
 		};
 		7126098D1E8B8604008CBF34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50CA10ABE33BB5A118CE6627 /* Pods-JGPush.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JGPush/JGPush.entitlements;
@@ -392,6 +409,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JGPush/Lib",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.searchingsoft.JGPush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "00853751-0a50-4478-a9bf-dccfada12bdf";
@@ -418,6 +436,7 @@
 				7126098D1E8B8604008CBF34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
