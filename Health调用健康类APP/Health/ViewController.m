@@ -96,7 +96,7 @@
      下面的limit参数传1表示查询最近一条数据,查询多条数据只要设置limit的参数值就可以了
      */
     
-    HKSampleQuery *sampleQuery = [[HKSampleQuery alloc] initWithSampleType:sampleType predicate:predicate limit:1000 sortDescriptors:@[start,end] resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+    HKSampleQuery *sampleQuery = [[HKSampleQuery alloc] initWithSampleType:sampleType predicate:predicate limit:1 sortDescriptors:@[start,end] resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
         //打印查询结果
         NSLog(@"resultCount = %lu result = %@",results.count,results);
         //把结果装换成字符串类型
@@ -110,7 +110,7 @@
             //获取51 count此类字符串前面的数字
             NSString *str = [stepStr componentsSeparatedByString:@" "][0];
             int stepNum = [str intValue];
-            NSLog(@"%d",stepNum);
+//            NSLog(@"%d",stepNum);
             //把一天中所有时间段中的步数加到一起
             allStepCount = allStepCount + stepNum;
         }
