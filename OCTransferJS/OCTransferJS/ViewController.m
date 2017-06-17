@@ -39,8 +39,8 @@
     
     NSString *webPath = [[NSBundle mainBundle] pathForResource:@"JStoOCfirstIndex" ofType:@"html"];
 //    http://219.148.31.135:8182/dcmp/html.html
-//    NSURL *webURL = [NSURL fileURLWithPath:webPath];
-    NSURL *webURL = [NSURL URLWithString:@"http://219.148.31.135:8182/dcmp/html.html"];
+    NSURL *webURL = [NSURL fileURLWithPath:webPath];
+//    NSURL *webURL = [NSURL URLWithString:@"http://219.148.31.135:8182/dcmp/html.html"];
     NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
     
     [self.webView loadRequest:URLRequest];
@@ -49,7 +49,7 @@
  
     JSContext *content = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
-    content[@"bdgt"] = ^() {
+    content[@"ag"] = ^() {
         
         NSLog(@"js调用oc---------begin--------");
         

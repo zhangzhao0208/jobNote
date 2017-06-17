@@ -41,6 +41,10 @@
 //屏幕比例
 #define W_PI WIDTH/750.0f
 #define H_PI HEIGHT/1334.0f
+//主线程
+#define DISPATH_MAIN(block) dispatch_async(dispatch_get_main_queue(), block);
+//弱引用
+#define LRWeakSelf(type)  __weak typeof(type) weak##type = type;
 //APP版本号
 #define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 //#import "Masonry.h"
