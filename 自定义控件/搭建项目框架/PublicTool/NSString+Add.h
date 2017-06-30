@@ -16,9 +16,9 @@
 //+(CGFloat)judgeLength:(NSString*)str1 and:(NSString*)str2;
 +(CGFloat)judgeLength:(NSString*)str1 and:(NSString*)str2 and:(CGFloat)width andfontSize:(CGFloat)size;
 -(CGRect)getNsstringSize:(NSString*)string withWidth:(float)width;
--(BOOL)validateMobile;
-+(BOOL) validatePassword:(NSString *)passWord;
-+ (BOOL) validateEmail:(NSString *)email;
+-(BOOL)validateMobile;//电话号码验证
++(BOOL) validatePassword:(NSString *)passWord;//密码验证
++ (BOOL) validateEmail:(NSString *)email;//邮箱验证
 + (int)stringConvertToInt:(NSString*)strtemp;
 + (BOOL)dutyChecked:(NSString *)duty;
 +(BOOL)isHaveLogin;
@@ -33,4 +33,5 @@
 -(NSString*)UTF8;
 + (BOOL)CheckIsIdentityCard:(NSString *)identityCard;
 + (NSString*)dictionaryToJson:(NSDictionary *)dic;
++ (BOOL)validateNumber:(NSString*)number;//只输入数字
 @end

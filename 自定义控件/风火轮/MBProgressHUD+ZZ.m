@@ -26,6 +26,8 @@
     
     // 设置图片
     hud.customView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",icon]]]; ;
+    hud.bezelView.color = [UIColor colorWithRed:1/255.0 green:1/255.0 blue:1/255.0 alpha:1];
+//    hud.label.textColor = [UIColor whiteColor];
     // 再设置模式
     hud.mode = MBProgressHUDModeCustomView;
     // 隐藏时候从父控件中移除
@@ -40,7 +42,6 @@
  *
  *  @param message 信息内容
  *  @param view    需要显示信息的视图
- *
  *  @return 直接返回一个MBProgressHUD，需要手动关闭
  */
 + (MBProgressHUD *)showMessage:(NSString *)message toView:(UIView *)view {
@@ -63,9 +64,10 @@
 //    hud.backgroundColor = [UIColor colorWithRed:1/255.0 green:1/255.0 blue:1/255.0 alpha:0.3];
     return hud;
 }
-
+//自动关闭 提示语-可调时间
 + (void)showAlert:(NSString *)text view:(UIView *)view afterDelay:(int)time{
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
+   
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     //背景框颜色
@@ -77,7 +79,12 @@
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:time];
 }
-
+//自动关闭 提示语-不可调时间
++ (void)showMessageDetaly:(NSString*)message{
+   
+    [self showAlert:message view:nil afterDelay:2];
+   
+}
 /**
  *  手动关闭MBProgressHUD
  *
